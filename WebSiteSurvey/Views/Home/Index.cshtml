@@ -12,7 +12,7 @@
     <div class="col-md-8">
         <h2>Tell us your experience...</h2>
 
-        @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+        @using (Html.BeginForm("Submit", "Home", FormMethod.Post))
         {
             <p>
                 <div class="form-group">
@@ -51,8 +51,7 @@
                 </div>
             </p>
             <p>
-                <button name="action" value="clear" class="btn btn-default">Clear</button>
-                <button name="action" value="save" class="btn btn-default">Save Changes</button>
+                <button type="submit" value="submit" class="btn btn-default">Submit</button>
             </p>
         }
 

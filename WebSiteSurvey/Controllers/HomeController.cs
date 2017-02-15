@@ -18,24 +18,6 @@ namespace WebSiteSurvey.Controllers
             return View(newSurvey);
         }
 
-        public ActionResult Submit(WebsiteExperienceSurveyModel websiteExperienceSurveyModel)
-        {
-            return Redirect("http://www.disney.com");
-        }
-
-        public ActionResult Clear(WebsiteExperienceSurveyModel websiteExperienceSurveyModel)
-        {
-            websiteExperienceSurveyModel = new WebsiteExperienceSurveyModel(websiteExperienceSurveyModel.Referrer);
-            return View("Index", websiteExperienceSurveyModel);
-        }
-
-        public ActionResult SubmitForm(string action)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
         private string GetReferrer()
         {
             var referrer = string.Empty;
@@ -47,9 +29,12 @@ namespace WebSiteSurvey.Controllers
             return referrer;
         }
 
-        public ActionResult Edit(WebsiteExperienceSurveyModel model)
+        public ActionResult Submit(WebsiteExperienceSurveyModel model)
         {
-            throw new NotImplementedException();
+            var formResult = model;
+            formResult.Referrer = Session["referrer"].ToString();
+
+            return RedirectToAction("Index", "ThankYou", formResult);
         }
     }
 }

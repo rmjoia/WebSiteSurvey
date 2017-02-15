@@ -11,7 +11,13 @@ namespace WebSiteSurvey.Models
 {
     public class WebsiteExperienceSurveyModel
     {
+        public WebsiteExperienceSurveyModel()
+        {
+            
+        }
+
         public WebsiteExperienceSurveyModel(string referrer)
+            :this()
         {
             Referrer = referrer;
         }
@@ -26,11 +32,11 @@ namespace WebSiteSurvey.Models
         public short ExperienceRating { get; set; }
 
         public string Suggestion { get; set; }
-        public string Referrer { get; }
+        public string Referrer { get; set; }
 
-        public SelectList Genders { get; set; } = new SelectList(GenderList(), "Value", "Text");
+        public readonly SelectList Genders = new SelectList(GenderList(), "Value", "Text");
 
-        public SelectList Countries = new SelectList(GetCountries(), "Text", "Value");
+        public readonly SelectList Countries = new SelectList(GetCountries(), "Text", "Value");
 
         private static IEnumerable<SelectListItem> GenderList()
         {
