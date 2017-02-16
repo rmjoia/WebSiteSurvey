@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201702161913195_initial.Designer.cs">
       <DependentUpon>201702161913195_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702161928223_fix name.cs" />
+    <Compile Include="Migrations\201702161928223_fix name.Designer.cs">
+      <DependentUpon>201702161928223_fix name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\WebSiteSurvey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +70,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702161913195_initial.resx">
       <DependentUpon>201702161913195_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702161928223_fix name.resx">
+      <DependentUpon>201702161928223_fix name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

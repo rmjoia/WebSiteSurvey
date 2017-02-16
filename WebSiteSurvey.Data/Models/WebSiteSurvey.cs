@@ -5,8 +5,14 @@ namespace WebSiteSurvey.Data.Models
 {
     public class WebSiteSurvey
     {
+        public WebSiteSurvey()
+        {
+            ResponseId = Guid.NewGuid();
+            SubmissionDate = DateTime.UtcNow;
+        }
+
         [Key]
-        public Guid ReponseId { get; set; }
+        public Guid ResponseId { get; private set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public int Age { get; set; }
@@ -15,6 +21,6 @@ namespace WebSiteSurvey.Data.Models
         public short ExperienceRating { get; set; }
         public string Suggestion { get; set; }
         public string Referrer { get; set; }
-        public DateTime SubmissionDate { get; set; }
+        public DateTime SubmissionDate { get; private set; }
     }
 }
