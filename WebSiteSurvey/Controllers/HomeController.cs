@@ -53,7 +53,10 @@ namespace WebSiteSurvey.Controllers
                 return RedirectToAction("Index", "Error");
             }
 
-            return RedirectToAction("Index", "ThankYou", formResult);
+            TempData["Name"] = formResult.Name;
+            TempData["Email"] = formResult.Email;
+
+            return RedirectToAction("Index", "ThankYou");
         }
     }
 }

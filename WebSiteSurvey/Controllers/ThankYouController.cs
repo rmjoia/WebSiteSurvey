@@ -10,9 +10,12 @@ namespace WebSiteSurvey.Controllers
     public class ThankYouController : Controller
     {
         // GET: ThankYou
-        public ActionResult Index(WebsiteExperienceSurveyModel model)
+        public ActionResult Index()
         {
-            return View(model);
+            ViewBag.Name = TempData["Name"];
+            ViewBag.Email = TempData["Email"];
+
+            return View();
         }
     }
 }

@@ -1,5 +1,17 @@
-﻿@model WebSiteSurvey.Models.WebsiteExperienceSurveyModel
+﻿<h2>
+    Thank You for your feedback @(string.IsNullOrWhiteSpace(ViewBag.Name) ? "S" : @ViewBag.Name),
+</h2>
+<h4>
+    Your opinion and suggestions are very important to us.<br/>
+    <p>
+        @if (!string.IsNullOrWhiteSpace(ViewBag.Email))
+        {
+            <span>If the team needs to get in contact with you, the email provided(@ViewBag.Email) will be used.</span>
+        }
+    </p>
+    <p>
+        Thank you.<br/>
+        The Site team.
+    </p>
 
-
-<h2>ThankYou @Model.Name</h2>
-
+</h4>
