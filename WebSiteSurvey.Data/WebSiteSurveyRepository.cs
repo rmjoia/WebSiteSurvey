@@ -33,5 +33,11 @@ namespace WebSiteSurvey.Data
 
             _disposed = true;
         }
+
+        public void Insert(Models.WebSiteSurvey webSiteSurvey)
+        {
+            _context.WebSiteSurveys.Add(webSiteSurvey);
+            _context.SaveChanges();
+        }
     }
 }
