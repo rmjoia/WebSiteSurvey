@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 using WebSiteSurvey.Data;
 using WebSiteSurvey.Models;
 
@@ -39,13 +35,22 @@ namespace WebSiteSurvey.Controllers
             {
                 using (var repository = new WebSiteSurveyRepository())
                 {
-                    
+                    repository.Insert(new Data.Models.WebSiteSurvey()
+                    {
+                        Name = formResult.Name,
+                        Age = formResult.Age,
+                        Country = formResult.Country,
+                        Email = formResult.Email,
+                        ExperienceRating = formResult.ExperienceRating,
+                        Gender = formResult.Gender,
+                        Referrer = formResult.Referrer,
+                        Suggestion = formResult.Suggestion
+                    });
                 }
             }
             catch (Exception)
             {
-                
-                throw;
+                return RedirectToAction("Index", "Error");
             }
 
             return RedirectToAction("Index", "ThankYou", formResult);
