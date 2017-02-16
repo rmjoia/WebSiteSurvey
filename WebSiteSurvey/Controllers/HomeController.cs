@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using WebSiteSurvey.Data;
 using WebSiteSurvey.Models;
 
 namespace WebSiteSurvey.Controllers
@@ -33,6 +34,19 @@ namespace WebSiteSurvey.Controllers
         {
             var formResult = model;
             formResult.Referrer = Session["referrer"].ToString();
+
+            try
+            {
+                using (var repository = new WebSiteSurveyRepository())
+                {
+                    
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
 
             return RedirectToAction("Index", "ThankYou", formResult);
         }
