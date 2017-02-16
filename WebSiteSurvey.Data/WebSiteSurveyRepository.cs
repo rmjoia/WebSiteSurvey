@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
@@ -6,9 +8,9 @@ namespace WebSiteSurvey.Data
 {
     public class WebSiteSurveyRepository : IDisposable
     {
-        bool _disposed = false;
+        bool _disposed;
         readonly SafeHandle _handle = new SafeFileHandle(IntPtr.Zero, true);
-        private WebSiteSurveyContext _context;
+        private readonly WebSiteSurveyContext _context;
 
         public WebSiteSurveyRepository()
         {
@@ -38,6 +40,11 @@ namespace WebSiteSurvey.Data
         {
             _context.WebSiteSurveys.Add(webSiteSurvey);
             _context.SaveChanges();
+        }
+
+        public IList<Models.WebSiteSurvey> GetAll()
+        {
+            return _context.WebSiteSurveys.ToList();
         }
     }
 }
